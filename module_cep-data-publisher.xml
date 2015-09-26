@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_cep-data-publisher" default="compile.module.cep-data-publisher">
+  <dirname property="module.cep-data-publisher.basedir" file="${ant.file.module_cep-data-publisher}"/>
+  
+  <property name="module.jdk.home.cep-data-publisher" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.cep-data-publisher" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.cep-data-publisher" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.cep-data-publisher" value="-encoding UTF-8 -source 1.5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="cep-data-publisher.output.dir" value="${module.cep-data-publisher.basedir}/target/classes"/>
+  <property name="cep-data-publisher.testoutput.dir" value="${module.cep-data-publisher.basedir}/target/test-classes"/>
+  
+  <path id="cep-data-publisher.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="cep-data-publisher.module.production.classpath">
+    <path refid="${module.jdk.classpath.cep-data-publisher}"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.agent:5.0.3.classpath"/>
+    <path refid="library.maven:_org.eclipse.osgi:org.eclipse.osgi:3.7.0.v20110613.classpath"/>
+    <path refid="library.maven:_org.eclipse.osgi:org.eclipse.osgi.services:3.3.100.v20120522-1822.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.core:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.com.hazelcast:hazelcast:3.5.0.wso2v1.classpath"/>
+    <path refid="library.maven:_com.hazelcast:hazelcast-all:3.5.classpath"/>
+    <path refid="library.maven:_com.eclipsesource.minimal-json:minimal-json:0.9.2.classpath"/>
+    <path refid="library.maven:_org.freemarker:freemarker:2.3.22.classpath"/>
+    <path refid="library.maven:_org.eclipse.equinox:org.eclipse.equinox.http.helper:1.1.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.eclipse.equinox:javax.servlet:3.0.0.v201112011016.classpath"/>
+    <path refid="library.maven:_org.bouncycastle.wso2:bcprov-jdk15on:1.49.0.wso2v2.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.49.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:javax.cache.wso2:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.base:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom.wso2:axiom:1.2.11.wso2v6.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs.wso2:geronimo-stax-api_1.0_spec:1.0.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:woodstox-core-asl:4.2.0.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:stax2-api:3.1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.securevault:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.core:4.4.1.classpath"/>
+    <path refid="library.maven:_commons-io.wso2:commons-io:2.0.0.wso2v2.classpath"/>
+    <path refid="library.maven:_net.sourceforge.findbugs:annotations:1.3.2.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.schema.wso2:xmlschema:1.4.7.wso2v3.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.api:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.xboot:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.securevault:org.wso2.securevault:1.0.0-wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom:axiom-api:1.2.11.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-activation_1.1_spec:1.0.2.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.6.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom:axiom-impl:1.2.11.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:wstx-asl:3.2.9.classpath"/>
+    <path refid="library.maven:_jline:jline:0.9.94.classpath"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+    <path refid="library.maven:_commons-cli:commons-cli:1.0.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.0.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.2.classpath"/>
+    <path refid="library.maven:_org.compass-project.wso2:compass:2.0.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.abdera.wso2:abdera:1.0.0.wso2v3.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.wso2:jdbc-pool:7.0.34.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-jdbc:7.0.47.classpath"/>
+    <path refid="library.maven:_org.apache.poi.wso2:poi-scratchpad:3.9.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-scratchpad:3.9.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.9.classpath"/>
+    <path refid="library.maven:_commons-httpclient.wso2:commons-httpclient:3.1.0.wso2v2.classpath"/>
+    <path refid="library.maven:_commons-httpclient:commons-httpclient:3.1.classpath"/>
+    <path refid="library.maven:_org.apache.commons.ssl:not-yet-commons-ssl:0.3.9.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.user.core:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.user.api:4.4.1.classpath"/>
+    <path refid="library.maven:_commons-dbcp.wso2:commons-dbcp:1.4.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.utils:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.queuing:4.4.1.classpath"/>
+    <path refid="library.maven:_org.igniterealtime.smack.wso2:smack:3.0.4.wso2v1.classpath"/>
+    <path refid="library.maven:_org.igniterealtime.smack.wso2:smackx:3.0.4.wso2v1.classpath"/>
+    <path refid="library.maven:_jaxen:jaxen:1.1.1.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_jdom:jdom:1.0.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.3.02.classpath"/>
+    <path refid="library.maven:_xerces:xercesimpl:2.6.2.classpath"/>
+    <path refid="library.maven:_xom:xom:1.0.classpath"/>
+    <path refid="library.maven:_xerces:xmlparserapis:2.6.2.classpath"/>
+    <path refid="library.maven:_xalan:xalan:2.6.0.classpath"/>
+    <path refid="library.maven:_com.ibm.icu:icu4j:2.6.1.classpath"/>
+    <path refid="library.maven:_commons-fileupload.wso2:commons-fileupload:1.2.2.wso2v1.classpath"/>
+    <path refid="library.maven:_commons-fileupload:commons-fileupload:1.2.2.classpath"/>
+    <path refid="library.maven:_org.apache.ant.wso2:ant:1.7.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.ant:ant:1.7.0.classpath"/>
+    <path refid="library.maven:_org.apache.ant:ant-launcher:1.7.0.classpath"/>
+    <path refid="library.maven:_commons-collections.wso2:commons-collections:3.2.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.axis2.wso2:axis2:1.6.1.wso2v14.classpath"/>
+    <path refid="library.maven:_org.apache.neethi.wso2:neethi:2.0.4.wso2v4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents.wso2:httpcore:4.3.3.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-catalina-ha:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-juli:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-tribes:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-catalina:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-annotations-api:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-api:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-util:7.0.59.classpath"/>
+    <path refid="library.maven:_wsdl4j.wso2:wsdl4j:1.6.2.wso2v4.classpath"/>
+    <path refid="library.maven:_commons-pool.wso2:commons-pool:1.5.6.wso2v1.classpath"/>
+    <path refid="library.maven:_commons-pool:commons-pool:1.5.6.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.org.apache.httpcomponents:httpclient:4.3.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.com.lmax:disruptor:3.3.2.wso2v2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons:5.0.3.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.3.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.logging:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.log4j.wso2:log4j:1.2.17.wso2v1.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.bootstrap:4.4.1.classpath"/>
+    <path refid="library.maven:_wrapper:wrapper:3.2.3.classpath"/>
+    <path refid="library.maven:_org.json.wso2:json:1.0.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.thrift:5.0.3.classpath"/>
+    <path refid="library.maven:_libthrift.wso2:libthrift:0.8.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.thrift:libthrift:0.8.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.5.8.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.1.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.1.3.classpath"/>
+    <path refid="library.maven:_slf4j.wso2:slf4j:1.5.10.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.binary:5.0.3.classpath"/>
+  </path>
+  
+  <path id="cep-data-publisher.runtime.production.module.classpath">
+    <pathelement location="${cep-data-publisher.output.dir}"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.agent:5.0.3.classpath"/>
+    <path refid="library.maven:_org.eclipse.osgi:org.eclipse.osgi:3.7.0.v20110613.classpath"/>
+    <path refid="library.maven:_org.eclipse.osgi:org.eclipse.osgi.services:3.3.100.v20120522-1822.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.core:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.com.hazelcast:hazelcast:3.5.0.wso2v1.classpath"/>
+    <path refid="library.maven:_com.hazelcast:hazelcast-all:3.5.classpath"/>
+    <path refid="library.maven:_com.eclipsesource.minimal-json:minimal-json:0.9.2.classpath"/>
+    <path refid="library.maven:_org.freemarker:freemarker:2.3.22.classpath"/>
+    <path refid="library.maven:_org.eclipse.equinox:org.eclipse.equinox.http.helper:1.1.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.eclipse.equinox:javax.servlet:3.0.0.v201112011016.classpath"/>
+    <path refid="library.maven:_org.bouncycastle.wso2:bcprov-jdk15on:1.49.0.wso2v2.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.49.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:javax.cache.wso2:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.base:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom.wso2:axiom:1.2.11.wso2v6.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs.wso2:geronimo-stax-api_1.0_spec:1.0.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:woodstox-core-asl:4.2.0.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:stax2-api:3.1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.securevault:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.core:4.4.1.classpath"/>
+    <path refid="library.maven:_commons-io.wso2:commons-io:2.0.0.wso2v2.classpath"/>
+    <path refid="library.maven:_net.sourceforge.findbugs:annotations:1.3.2.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.schema.wso2:xmlschema:1.4.7.wso2v3.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.api:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.xboot:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.securevault:org.wso2.securevault:1.0.0-wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom:axiom-api:1.2.11.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-activation_1.1_spec:1.0.2.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.6.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom:axiom-impl:1.2.11.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:wstx-asl:3.2.9.classpath"/>
+    <path refid="library.maven:_jline:jline:0.9.94.classpath"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+    <path refid="library.maven:_commons-cli:commons-cli:1.0.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.0.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.2.classpath"/>
+    <path refid="library.maven:_org.compass-project.wso2:compass:2.0.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.abdera.wso2:abdera:1.0.0.wso2v3.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.wso2:jdbc-pool:7.0.34.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-jdbc:7.0.47.classpath"/>
+    <path refid="library.maven:_org.apache.poi.wso2:poi-scratchpad:3.9.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-scratchpad:3.9.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.9.classpath"/>
+    <path refid="library.maven:_commons-httpclient.wso2:commons-httpclient:3.1.0.wso2v2.classpath"/>
+    <path refid="library.maven:_commons-httpclient:commons-httpclient:3.1.classpath"/>
+    <path refid="library.maven:_org.apache.commons.ssl:not-yet-commons-ssl:0.3.9.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.user.core:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.user.api:4.4.1.classpath"/>
+    <path refid="library.maven:_commons-dbcp.wso2:commons-dbcp:1.4.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.utils:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.queuing:4.4.1.classpath"/>
+    <path refid="library.maven:_org.igniterealtime.smack.wso2:smack:3.0.4.wso2v1.classpath"/>
+    <path refid="library.maven:_org.igniterealtime.smack.wso2:smackx:3.0.4.wso2v1.classpath"/>
+    <path refid="library.maven:_jaxen:jaxen:1.1.1.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_jdom:jdom:1.0.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.3.02.classpath"/>
+    <path refid="library.maven:_xerces:xercesimpl:2.6.2.classpath"/>
+    <path refid="library.maven:_xom:xom:1.0.classpath"/>
+    <path refid="library.maven:_xerces:xmlparserapis:2.6.2.classpath"/>
+    <path refid="library.maven:_xalan:xalan:2.6.0.classpath"/>
+    <path refid="library.maven:_com.ibm.icu:icu4j:2.6.1.classpath"/>
+    <path refid="library.maven:_commons-fileupload.wso2:commons-fileupload:1.2.2.wso2v1.classpath"/>
+    <path refid="library.maven:_commons-fileupload:commons-fileupload:1.2.2.classpath"/>
+    <path refid="library.maven:_org.apache.ant.wso2:ant:1.7.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.ant:ant:1.7.0.classpath"/>
+    <path refid="library.maven:_org.apache.ant:ant-launcher:1.7.0.classpath"/>
+    <path refid="library.maven:_commons-collections.wso2:commons-collections:3.2.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.axis2.wso2:axis2:1.6.1.wso2v14.classpath"/>
+    <path refid="library.maven:_org.apache.neethi.wso2:neethi:2.0.4.wso2v4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents.wso2:httpcore:4.3.3.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-catalina-ha:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-juli:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-tribes:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-catalina:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-annotations-api:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-api:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-util:7.0.59.classpath"/>
+    <path refid="library.maven:_wsdl4j.wso2:wsdl4j:1.6.2.wso2v4.classpath"/>
+    <path refid="library.maven:_commons-pool.wso2:commons-pool:1.5.6.wso2v1.classpath"/>
+    <path refid="library.maven:_commons-pool:commons-pool:1.5.6.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.org.apache.httpcomponents:httpclient:4.3.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.com.lmax:disruptor:3.3.2.wso2v2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons:5.0.3.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.3.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.logging:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.log4j.wso2:log4j:1.2.17.wso2v1.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.bootstrap:4.4.1.classpath"/>
+    <path refid="library.maven:_wrapper:wrapper:3.2.3.classpath"/>
+    <path refid="library.maven:_org.json.wso2:json:1.0.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.thrift:5.0.3.classpath"/>
+    <path refid="library.maven:_libthrift.wso2:libthrift:0.8.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.thrift:libthrift:0.8.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.5.8.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.1.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.1.3.classpath"/>
+    <path refid="library.maven:_slf4j.wso2:slf4j:1.5.10.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.binary:5.0.3.classpath"/>
+  </path>
+  
+  <path id="cep-data-publisher.module.classpath">
+    <path refid="${module.jdk.classpath.cep-data-publisher}"/>
+    <pathelement location="${cep-data-publisher.output.dir}"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.agent:5.0.3.classpath"/>
+    <path refid="library.maven:_org.eclipse.osgi:org.eclipse.osgi:3.7.0.v20110613.classpath"/>
+    <path refid="library.maven:_org.eclipse.osgi:org.eclipse.osgi.services:3.3.100.v20120522-1822.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.core:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.com.hazelcast:hazelcast:3.5.0.wso2v1.classpath"/>
+    <path refid="library.maven:_com.hazelcast:hazelcast-all:3.5.classpath"/>
+    <path refid="library.maven:_com.eclipsesource.minimal-json:minimal-json:0.9.2.classpath"/>
+    <path refid="library.maven:_org.freemarker:freemarker:2.3.22.classpath"/>
+    <path refid="library.maven:_org.eclipse.equinox:org.eclipse.equinox.http.helper:1.1.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.eclipse.equinox:javax.servlet:3.0.0.v201112011016.classpath"/>
+    <path refid="library.maven:_org.bouncycastle.wso2:bcprov-jdk15on:1.49.0.wso2v2.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.49.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:javax.cache.wso2:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.base:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom.wso2:axiom:1.2.11.wso2v6.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs.wso2:geronimo-stax-api_1.0_spec:1.0.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:woodstox-core-asl:4.2.0.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:stax2-api:3.1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.securevault:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.core:4.4.1.classpath"/>
+    <path refid="library.maven:_commons-io.wso2:commons-io:2.0.0.wso2v2.classpath"/>
+    <path refid="library.maven:_net.sourceforge.findbugs:annotations:1.3.2.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.schema.wso2:xmlschema:1.4.7.wso2v3.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.api:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.xboot:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.securevault:org.wso2.securevault:1.0.0-wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom:axiom-api:1.2.11.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-activation_1.1_spec:1.0.2.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.6.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom:axiom-impl:1.2.11.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:wstx-asl:3.2.9.classpath"/>
+    <path refid="library.maven:_jline:jline:0.9.94.classpath"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+    <path refid="library.maven:_commons-cli:commons-cli:1.0.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.0.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.2.classpath"/>
+    <path refid="library.maven:_org.compass-project.wso2:compass:2.0.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.abdera.wso2:abdera:1.0.0.wso2v3.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.wso2:jdbc-pool:7.0.34.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-jdbc:7.0.47.classpath"/>
+    <path refid="library.maven:_org.apache.poi.wso2:poi-scratchpad:3.9.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-scratchpad:3.9.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.9.classpath"/>
+    <path refid="library.maven:_commons-httpclient.wso2:commons-httpclient:3.1.0.wso2v2.classpath"/>
+    <path refid="library.maven:_commons-httpclient:commons-httpclient:3.1.classpath"/>
+    <path refid="library.maven:_org.apache.commons.ssl:not-yet-commons-ssl:0.3.9.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.user.core:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.user.api:4.4.1.classpath"/>
+    <path refid="library.maven:_commons-dbcp.wso2:commons-dbcp:1.4.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.utils:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.queuing:4.4.1.classpath"/>
+    <path refid="library.maven:_org.igniterealtime.smack.wso2:smack:3.0.4.wso2v1.classpath"/>
+    <path refid="library.maven:_org.igniterealtime.smack.wso2:smackx:3.0.4.wso2v1.classpath"/>
+    <path refid="library.maven:_jaxen:jaxen:1.1.1.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_jdom:jdom:1.0.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.3.02.classpath"/>
+    <path refid="library.maven:_xerces:xercesimpl:2.6.2.classpath"/>
+    <path refid="library.maven:_xom:xom:1.0.classpath"/>
+    <path refid="library.maven:_xerces:xmlparserapis:2.6.2.classpath"/>
+    <path refid="library.maven:_xalan:xalan:2.6.0.classpath"/>
+    <path refid="library.maven:_com.ibm.icu:icu4j:2.6.1.classpath"/>
+    <path refid="library.maven:_commons-fileupload.wso2:commons-fileupload:1.2.2.wso2v1.classpath"/>
+    <path refid="library.maven:_commons-fileupload:commons-fileupload:1.2.2.classpath"/>
+    <path refid="library.maven:_org.apache.ant.wso2:ant:1.7.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.ant:ant:1.7.0.classpath"/>
+    <path refid="library.maven:_org.apache.ant:ant-launcher:1.7.0.classpath"/>
+    <path refid="library.maven:_commons-collections.wso2:commons-collections:3.2.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.axis2.wso2:axis2:1.6.1.wso2v14.classpath"/>
+    <path refid="library.maven:_org.apache.neethi.wso2:neethi:2.0.4.wso2v4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents.wso2:httpcore:4.3.3.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-catalina-ha:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-juli:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-tribes:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-catalina:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-annotations-api:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-api:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-util:7.0.59.classpath"/>
+    <path refid="library.maven:_wsdl4j.wso2:wsdl4j:1.6.2.wso2v4.classpath"/>
+    <path refid="library.maven:_commons-pool.wso2:commons-pool:1.5.6.wso2v1.classpath"/>
+    <path refid="library.maven:_commons-pool:commons-pool:1.5.6.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.org.apache.httpcomponents:httpclient:4.3.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.com.lmax:disruptor:3.3.2.wso2v2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons:5.0.3.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.3.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.logging:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.log4j.wso2:log4j:1.2.17.wso2v1.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.bootstrap:4.4.1.classpath"/>
+    <path refid="library.maven:_wrapper:wrapper:3.2.3.classpath"/>
+    <path refid="library.maven:_org.json.wso2:json:1.0.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.thrift:5.0.3.classpath"/>
+    <path refid="library.maven:_libthrift.wso2:libthrift:0.8.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.thrift:libthrift:0.8.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.5.8.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.1.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.1.3.classpath"/>
+    <path refid="library.maven:_slf4j.wso2:slf4j:1.5.10.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.binary:5.0.3.classpath"/>
+  </path>
+  
+  <path id="cep-data-publisher.runtime.module.classpath">
+    <pathelement location="${cep-data-publisher.testoutput.dir}"/>
+    <pathelement location="${cep-data-publisher.output.dir}"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.agent:5.0.3.classpath"/>
+    <path refid="library.maven:_org.eclipse.osgi:org.eclipse.osgi:3.7.0.v20110613.classpath"/>
+    <path refid="library.maven:_org.eclipse.osgi:org.eclipse.osgi.services:3.3.100.v20120522-1822.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.core:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.com.hazelcast:hazelcast:3.5.0.wso2v1.classpath"/>
+    <path refid="library.maven:_com.hazelcast:hazelcast-all:3.5.classpath"/>
+    <path refid="library.maven:_com.eclipsesource.minimal-json:minimal-json:0.9.2.classpath"/>
+    <path refid="library.maven:_org.freemarker:freemarker:2.3.22.classpath"/>
+    <path refid="library.maven:_org.eclipse.equinox:org.eclipse.equinox.http.helper:1.1.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.eclipse.equinox:javax.servlet:3.0.0.v201112011016.classpath"/>
+    <path refid="library.maven:_org.bouncycastle.wso2:bcprov-jdk15on:1.49.0.wso2v2.classpath"/>
+    <path refid="library.maven:_org.bouncycastle:bcprov-jdk15on:1.49.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:javax.cache.wso2:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-jta_1.1_spec:1.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.base:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom.wso2:axiom:1.2.11.wso2v6.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs.wso2:geronimo-stax-api_1.0_spec:1.0.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:1.0.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:woodstox-core-asl:4.2.0.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:stax2-api:3.1.1.classpath"/>
+    <path refid="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.securevault:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.core:4.4.1.classpath"/>
+    <path refid="library.maven:_commons-io.wso2:commons-io:2.0.0.wso2v2.classpath"/>
+    <path refid="library.maven:_net.sourceforge.findbugs:annotations:1.3.2.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.schema.wso2:xmlschema:1.4.7.wso2v3.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.api:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.registry.xboot:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.securevault:org.wso2.securevault:1.0.0-wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom:axiom-api:1.2.11.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-activation_1.1_spec:1.0.2.classpath"/>
+    <path refid="library.maven:_org.apache.geronimo.specs:geronimo-javamail_1.4_spec:1.6.classpath"/>
+    <path refid="library.maven:_org.apache.ws.commons.axiom:axiom-impl:1.2.11.classpath"/>
+    <path refid="library.maven:_org.codehaus.woodstox:wstx-asl:3.2.9.classpath"/>
+    <path refid="library.maven:_jline:jline:0.9.94.classpath"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+    <path refid="library.maven:_commons-cli:commons-cli:1.0.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.0.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.2.classpath"/>
+    <path refid="library.maven:_org.compass-project.wso2:compass:2.0.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.abdera.wso2:abdera:1.0.0.wso2v3.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat.wso2:jdbc-pool:7.0.34.wso2v2.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-jdbc:7.0.47.classpath"/>
+    <path refid="library.maven:_org.apache.poi.wso2:poi-scratchpad:3.9.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi-scratchpad:3.9.classpath"/>
+    <path refid="library.maven:_org.apache.poi:poi:3.9.classpath"/>
+    <path refid="library.maven:_commons-httpclient.wso2:commons-httpclient:3.1.0.wso2v2.classpath"/>
+    <path refid="library.maven:_commons-httpclient:commons-httpclient:3.1.classpath"/>
+    <path refid="library.maven:_org.apache.commons.ssl:not-yet-commons-ssl:0.3.9.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.user.core:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.user.api:4.4.1.classpath"/>
+    <path refid="library.maven:_commons-dbcp.wso2:commons-dbcp:1.4.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.utils:4.4.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.queuing:4.4.1.classpath"/>
+    <path refid="library.maven:_org.igniterealtime.smack.wso2:smack:3.0.4.wso2v1.classpath"/>
+    <path refid="library.maven:_org.igniterealtime.smack.wso2:smackx:3.0.4.wso2v1.classpath"/>
+    <path refid="library.maven:_jaxen:jaxen:1.1.1.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_jdom:jdom:1.0.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.3.02.classpath"/>
+    <path refid="library.maven:_xerces:xercesimpl:2.6.2.classpath"/>
+    <path refid="library.maven:_xom:xom:1.0.classpath"/>
+    <path refid="library.maven:_xerces:xmlparserapis:2.6.2.classpath"/>
+    <path refid="library.maven:_xalan:xalan:2.6.0.classpath"/>
+    <path refid="library.maven:_com.ibm.icu:icu4j:2.6.1.classpath"/>
+    <path refid="library.maven:_commons-fileupload.wso2:commons-fileupload:1.2.2.wso2v1.classpath"/>
+    <path refid="library.maven:_commons-fileupload:commons-fileupload:1.2.2.classpath"/>
+    <path refid="library.maven:_org.apache.ant.wso2:ant:1.7.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.ant:ant:1.7.0.classpath"/>
+    <path refid="library.maven:_org.apache.ant:ant-launcher:1.7.0.classpath"/>
+    <path refid="library.maven:_commons-collections.wso2:commons-collections:3.2.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.axis2.wso2:axis2:1.6.1.wso2v14.classpath"/>
+    <path refid="library.maven:_org.apache.neethi.wso2:neethi:2.0.4.wso2v4.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents.wso2:httpcore:4.3.3.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-catalina-ha:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-juli:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-tribes:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-catalina:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-annotations-api:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-api:7.0.59.classpath"/>
+    <path refid="library.maven:_org.apache.tomcat:tomcat-util:7.0.59.classpath"/>
+    <path refid="library.maven:_wsdl4j.wso2:wsdl4j:1.6.2.wso2v4.classpath"/>
+    <path refid="library.maven:_commons-pool.wso2:commons-pool:1.5.6.wso2v1.classpath"/>
+    <path refid="library.maven:_commons-pool:commons-pool:1.5.6.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.org.apache.httpcomponents:httpclient:4.3.1.wso2v2.classpath"/>
+    <path refid="library.maven:_org.wso2.orbit.com.lmax:disruptor:3.3.2.wso2v2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons:5.0.3.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.3.1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.logging:4.4.1.classpath"/>
+    <path refid="library.maven:_org.apache.log4j.wso2:log4j:1.2.17.wso2v1.classpath"/>
+    <path refid="library.maven:_log4j:log4j:1.2.17.classpath"/>
+    <path refid="library.maven:_commons-logging:commons-logging:1.2.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon:org.wso2.carbon.bootstrap:4.4.1.classpath"/>
+    <path refid="library.maven:_wrapper:wrapper:3.2.3.classpath"/>
+    <path refid="library.maven:_org.json.wso2:json:1.0.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.thrift:5.0.3.classpath"/>
+    <path refid="library.maven:_libthrift.wso2:libthrift:0.8.0.wso2v1.classpath"/>
+    <path refid="library.maven:_org.apache.thrift:libthrift:0.8.0.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.5.8.classpath"/>
+    <path refid="library.maven:_commons-lang:commons-lang:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.1.2.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.1.3.classpath"/>
+    <path refid="library.maven:_slf4j.wso2:slf4j:1.5.10.wso2v1.classpath"/>
+    <path refid="library.maven:_org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.binary:5.0.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.cep-data-publisher">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.cep-data-publisher">
+    <patternset refid="excluded.from.module.cep-data-publisher"/>
+  </patternset>
+  
+  <path id="cep-data-publisher.module.sourcepath">
+    <dirset dir="${module.cep-data-publisher.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  <path id="cep-data-publisher.module.test.sourcepath">
+    <dirset dir="${module.cep-data-publisher.basedir}">
+      <include name="src/test/java"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.cep-data-publisher" depends="compile.module.cep-data-publisher.production,compile.module.cep-data-publisher.tests" description="Compile module cep-data-publisher"/>
+  
+  <target name="compile.module.cep-data-publisher.production" depends="register.custom.compilers" description="Compile module cep-data-publisher; production classes">
+    <mkdir dir="${cep-data-publisher.output.dir}"/>
+    <javac2 destdir="${cep-data-publisher.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cep-data-publisher}/javac">
+      <compilerarg line="${compiler.args.cep-data-publisher}"/>
+      <bootclasspath refid="cep-data-publisher.module.bootclasspath"/>
+      <classpath refid="cep-data-publisher.module.production.classpath"/>
+      <src refid="cep-data-publisher.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cep-data-publisher"/>
+    </javac2>
+    
+    <copy todir="${cep-data-publisher.output.dir}">
+      <fileset dir="${module.cep-data-publisher.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.cep-data-publisher.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.cep-data-publisher.tests" depends="register.custom.compilers,compile.module.cep-data-publisher.production" description="compile module cep-data-publisher; test classes" unless="skip.tests">
+    <mkdir dir="${cep-data-publisher.testoutput.dir}"/>
+    <javac2 destdir="${cep-data-publisher.testoutput.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.cep-data-publisher}/javac">
+      <compilerarg line="${compiler.args.cep-data-publisher}"/>
+      <bootclasspath refid="cep-data-publisher.module.bootclasspath"/>
+      <classpath refid="cep-data-publisher.module.classpath"/>
+      <src refid="cep-data-publisher.module.test.sourcepath"/>
+      <patternset refid="excluded.from.compilation.cep-data-publisher"/>
+    </javac2>
+    
+    <copy todir="${cep-data-publisher.testoutput.dir}">
+      <fileset dir="${module.cep-data-publisher.basedir}/src/test/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="clean.module.cep-data-publisher" description="cleanup module">
+    <delete dir="${cep-data-publisher.output.dir}"/>
+    <delete dir="${cep-data-publisher.testoutput.dir}"/>
+  </target>
+</project>
